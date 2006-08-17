@@ -1,0 +1,9 @@
+--- #YAML:1.0
+name: Catalyst-Plugin-I18N-Request
+version: 0.01
+author:
+  - Adam Paynter <adapay@cpan.org>
+abstract: A plugin for localizing/delocalizing 
+paths and parameters.
+license: perl
+generated_by: Module::Build version 0.2611, without YAML.pm
