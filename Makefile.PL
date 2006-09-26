@@ -7,11 +7,14 @@ WriteMakefile
           'PREREQ_PM' => {
                            'Catalyst' => '0',
                            'Catalyst::Plugin::I18N' => '0',
+                           'Scalar::Util' => '0',
                            'Test::More' => '0',
                            'URI' => '0',
+                           'URI::QueryParam' => '0',
                            'utf8' => '0'
                          },
           'INSTALLDIRS' => 'site',
+          'EXE_FILES' => [],
           'PL_FILES' => {}
         )
 ;

@@ -3,8 +3,10 @@ package Catalyst::Plugin::I18N::Request;
 use strict;
 use warnings;
 use URI;
+use URI::QueryParam;
 use utf8;
-our $VERSION = '0.01';
+use Scalar::Util qw( blessed );
+our $VERSION = '0.02';
 
 =head1 NAME
 
@@ -175,13 +177,13 @@ sub localize_uri {
     my ($c, $uri) = @_;
     return undef unless defined $uri;
     
-    $uri = URI->new( $uri ) unless ref $uri;
+    $uri = URI->new( $uri ) unless blessed $uri;
     
     # parameters
-    my %query_form = $uri->query_form;
+    my $query_form = $uri->query_form_hash;
     
     # decode all strings for character logic rather than byte logic
-    for my $value ( values %query_form ) {
+    for my $value ( values %$query_form ) {
         for ( ref $value eq 'ARRAY' ? @$value : $value ) {
             $_ = "$_";
             utf8::decode( $_ );
@@ -189,7 +191,7 @@ sub localize_uri {
     }
     
     # localize the parameters
-    my $parameters = $c->localize_parameters( \%query_form );
+    my $parameters = $c->localize_parameters( $query_form );
     
     # encode all strings for byte logic rather than character logic
     for my $value ( values %$parameters ) {
@@ -199,7 +201,7 @@ sub localize_uri {
         }
     }
     
-    $uri->query_form( $parameters );
+    $uri->query_form_hash( $parameters );
     
     # path
     $uri->path( $c->localize_path( $uri->path ) );
