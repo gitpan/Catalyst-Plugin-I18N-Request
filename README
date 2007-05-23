@@ -100,28 +100,22 @@ LOCALIZATION
 
 METHODS
   setup ( )
-
     Allows Catalyst::Request to localize the results of calls to uri_with.
 
   uri_for ( $path [, @args ] [, \%query_values ] )
-
     Calls the native uri_for, but proceeds to localize the resulting path
     and query values.
 
   localize_uri ( $uri )
-
     Localizes a URI using the current context.
 
   localize_path ( $path )
-
     Localizes all components of the provided path.
 
   delocalize_path ( $path )
-
     Delocalizes all components of the provided path.
 
   transform_parameters ( \%parameters, $transformer )
-
     Transforms the given parameter names using the given transformer. The
     transformer may be one of the following:
 
@@ -129,52 +123,35 @@ METHODS
     argument and a parameter name as the second argument.
     * The name of a particular accessor that can be called on the context
     object, accepting a parameter name as the argument.
-  localize_parameters ( \%parameters )
 
+  localize_parameters ( \%parameters )
     Localizes the keys within a hash of parameters.
 
   delocalize_parameters ( \%parameters )
-
     Delocalizes the keys within a hash of parameters.
 
-  prepare_request ( )
-
-    Establishes a reference in the request back to its associated context
-    object. This is required to enable localization within the uri_with
-    method of Catalyst::Request.
-
   prepare_path ( )
-
     Delocalizes the requested path.
 
   prepare_parameters ( )
-
     Delocalizes the requested parameter names.
 
-  finalize( )
-
-    Deletes the request's reference to its associated context object. This
-    is very important, as it avoids memory leaks.
-
   localize_path_component ( $delocalized )
-
     Localizes a component of a path.
 
   delocalize_path_component ( $localized )
-
     Delocalizes a component of a path.
 
   localize_parameter_name ( $delocalized )
-
     Localizes a parameter name.
 
   delocalize_parameter_name ( $localized )
-
     Delocalizes a parameter name.
 
 SEE ALSO
     * Catalyst::Plugin::I18N
     * Catalyst
+
 AUTHOR
     Adam Paynter <adapay@cpan.org>
 

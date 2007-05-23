@@ -1,6 +1,6 @@
 ---
 name: Catalyst-Plugin-I18N-Request
-version: 0.02
+version: 0.03
 author:
   - 'Adam Paynter <adapay@cpan.org>'
 abstract: |-
@@ -21,8 +21,8 @@ build_requires:
 provides:
   Catalyst::Plugin::I18N::Request:
     file: lib/Catalyst/Plugin/I18N/Request.pm
-    version: 0.02
-generated_by: Module::Build version 0.2805
+    version: 0.03
+generated_by: Module::Build version 0.2807
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2

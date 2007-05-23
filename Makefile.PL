@@ -2,19 +2,19 @@
 use ExtUtils::MakeMaker;
 WriteMakefile
 (
+          'PL_FILES' => {},
+          'INSTALLDIRS' => 'site',
           'NAME' => 'Catalyst::Plugin::I18N::Request',
+          'EXE_FILES' => [],
           'VERSION_FROM' => 'lib/Catalyst/Plugin/I18N/Request.pm',
           'PREREQ_PM' => {
-                           'Catalyst' => '0',
-                           'Catalyst::Plugin::I18N' => '0',
-                           'Scalar::Util' => '0',
-                           'Test::More' => '0',
-                           'URI' => '0',
-                           'URI::QueryParam' => '0',
-                           'utf8' => '0'
-                         },
-          'INSTALLDIRS' => 'site',
-          'EXE_FILES' => [],
-          'PL_FILES' => {}
+                           'Test::More' => 0,
+                           'Scalar::Util' => 0,
+                           'URI' => 0,
+                           'Catalyst::Plugin::I18N' => 0,
+                           'Catalyst' => 0,
+                           'URI::QueryParam' => 0,
+                           'utf8' => 0
+                         }
         )
 ;
