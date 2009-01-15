@@ -1,28 +1,26 @@
 ---
-name: Catalyst-Plugin-I18N-Request
-version: 0.03
+abstract: 'A plugin for localizing/delocalizing '
 author:
   - 'Adam Paynter <adapay@cpan.org>'
-abstract: |-
-  A plugin for localizing/delocalizing 
-  paths and parameters.
-license: perl
-resources:
-  license: http://dev.perl.org/licenses/
-requires:
-  Catalyst: 0
-  Catalyst::Plugin::I18N: 0
-  Scalar::Util: 0
-  URI: 0
-  URI::QueryParam: 0
-  utf8: 0
 build_requires:
   Test::More: 0
-provides:
-  Catalyst::Plugin::I18N::Request:
-    file: lib/Catalyst/Plugin/I18N/Request.pm
-    version: 0.03
-generated_by: Module::Build version 0.2807
+distribution_type: module
+generated_by: 'Module::Install version 0.77'
+license: perl
 meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Catalyst-Plugin-I18N-Request
+no_index:
+  directory:
+    - inc
+    - t
+requires:
+  Catalyst::Plugin::I18N: 0
+  Catalyst::Runtime: 5.7000
+  Scalar::Util: 0
+  URI: 0
+  perl: 5.8.0
+resources:
+  license: http://dev.perl.org/licenses/
+version: 0.04

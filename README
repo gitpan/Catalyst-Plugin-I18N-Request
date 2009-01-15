@@ -4,51 +4,57 @@ NAME
 
 SYNOPSIS
         package My::App;
+        
+    use Catalyst qw( ConfigLoader Static::Simple I18N I18N::Request );
+        
+    1;
+        
     
-        use Catalyst qw( ConfigLoader Static::Simple I18N I18N::Request );
+    ...
+        
     
-        1;
-    
-        ...
-    
-        package My::App::Controller::Root;
-    
-        use base qw( Catalyst::Controller );
-    
-        sub search : Private {
+    package My::App::Controller::Root;
+        
+    use base qw( Catalyst::Controller );
+        
+    sub search : Private {
             my ($self, $c) = @_;
             my $searchTerms = $c->req->param('searchTerms');
             # yadda, yadda, yadda...
         }
-    
-        ...
-    
-        French:
         
-            Requested as:
+    
+    
+    ...
+        
+    
+    
+    French:
+            
+        Requested as:
                 GET /recherche?terms_de_recherche=Pirates HTTP/1.0
                 Accept-Language: fr
-            
-            Dispatched as:
+                
+        Dispatched as:
                 GET /search?searchTerms=Pirates HTTP/1.0
                 Accept-Language: fr
-            
-            $c->uri_for('/search'):
+                
+        $c->uri_for('/search'):
                 http://localhost/recherche
-        
-        German:
-        
-            Requested as:
+            
+    German:
+            
+        Requested as:
                 GET /suche?searchTerms=Pirates HTTP/1.0
                 Accept-Language: de
-            
-            Dispatched as:
+                
+        Dispatched as:
                 GET /search?searchTerms=Pirates HTTP/1.0
                 Accept-Language: de    
-            
-            $c->uri_for('/search'):
+                
+        $c->uri_for('/search'):
                 http://localhost/suche
-    
+
 DESCRIPTION
     This plugin is designed to work alongside Catalyst::Plugin::I18N in
     order to provide localization / delocalization of request paths and
@@ -64,7 +70,7 @@ DELOCALIZATION
 
         'recherche' (French requests)
         'suche'     (German requests)
-         etc... 
+         etc...
 
     This relies on the localize method provided to the application by
     Catalyst::Plugin::I18N. For the above examples to work, the following
@@ -119,10 +125,11 @@ METHODS
     Transforms the given parameter names using the given transformer. The
     transformer may be one of the following:
 
-    * A CODE reference which accepts the context object as the first
-    argument and a parameter name as the second argument.
-    * The name of a particular accessor that can be called on the context
-    object, accepting a parameter name as the argument.
+    *   A CODE reference which accepts the context object as the first
+        argument and a parameter name as the second argument.
+
+    *   The name of a particular accessor that can be called on the context
+        object, accepting a parameter name as the argument.
 
   localize_parameters ( \%parameters )
     Localizes the keys within a hash of parameters.
@@ -149,14 +156,17 @@ METHODS
     Delocalizes a parameter name.
 
 SEE ALSO
-    * Catalyst::Plugin::I18N
-    * Catalyst
+    *   Catalyst::Plugin::I18N
 
-AUTHOR
+    *   Catalyst
+
+AUTHORS
     Adam Paynter <adapay@cpan.org>
 
+    Brian Cassidy <bricas@cpan.org>
+
 COPYRIGHT AND LICENSE
-    Copyright 2006 by Adam Paynter
+    Copyright 2006-2009 by Adam Paynter, Brian Cassidy
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
