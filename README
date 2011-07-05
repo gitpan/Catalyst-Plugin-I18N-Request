@@ -4,55 +4,49 @@ NAME
 
 SYNOPSIS
         package My::App;
-        
-    use Catalyst qw( ConfigLoader Static::Simple I18N I18N::Request );
-        
-    1;
-        
     
-    ...
-        
+        use Catalyst qw( ConfigLoader Static::Simple I18N I18N::Request );
     
-    package My::App::Controller::Root;
-        
-    use base qw( Catalyst::Controller );
-        
-    sub search : Private {
+        1;
+    
+        ...
+    
+        package My::App::Controller::Root;
+    
+        use base qw( Catalyst::Controller );
+    
+        sub search : Private {
             my ($self, $c) = @_;
             my $searchTerms = $c->req->param('searchTerms');
             # yadda, yadda, yadda...
         }
+    
+        ...
+    
+        French:
         
-    
-    
-    ...
-        
-    
-    
-    French:
-            
-        Requested as:
+            Requested as:
                 GET /recherche?terms_de_recherche=Pirates HTTP/1.0
                 Accept-Language: fr
-                
-        Dispatched as:
+            
+            Dispatched as:
                 GET /search?searchTerms=Pirates HTTP/1.0
                 Accept-Language: fr
-                
-        $c->uri_for('/search'):
+            
+            $c->uri_for('/search'):
                 http://localhost/recherche
-            
-    German:
-            
-        Requested as:
+        
+        German:
+        
+            Requested as:
                 GET /suche?searchTerms=Pirates HTTP/1.0
                 Accept-Language: de
-                
-        Dispatched as:
+            
+            Dispatched as:
                 GET /search?searchTerms=Pirates HTTP/1.0
                 Accept-Language: de    
-                
-        $c->uri_for('/search'):
+            
+            $c->uri_for('/search'):
                 http://localhost/suche
 
 DESCRIPTION
@@ -166,7 +160,7 @@ AUTHORS
     Brian Cassidy <bricas@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2006-2009 by Adam Paynter, Brian Cassidy
+    Copyright 2006-2011 by Adam Paynter, Brian Cassidy
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.

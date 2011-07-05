@@ -17,4 +17,5 @@ t/02-live.t
 t/98-pod_coverage.t
 t/99-pod.t
 t/lib/TestApp.pm
+t/lib/TestApp/Controller/Root.pm
 t/lib/TestApp/I18N/fr.pm
