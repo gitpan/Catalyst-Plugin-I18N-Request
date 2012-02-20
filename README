@@ -102,6 +102,10 @@ METHODS
   setup ( )
     Allows Catalyst::Request to localize the results of calls to uri_with.
 
+  prepare ( )
+    Overrides Catalyst's "prepare" method to push the context object to the
+    request object.
+
   uri_for ( $path [, @args ] [, \%query_values ] )
     Calls the native uri_for, but proceeds to localize the resulting path
     and query values.
@@ -160,7 +164,7 @@ AUTHORS
     Brian Cassidy <bricas@cpan.org>
 
 COPYRIGHT AND LICENSE
-    Copyright 2006-2011 by Adam Paynter, Brian Cassidy
+    Copyright 2006-2012 by Adam Paynter, Brian Cassidy
 
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
